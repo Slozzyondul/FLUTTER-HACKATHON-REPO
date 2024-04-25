@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/model/todo.dart'; // Import ToDo model class
 import 'package:todolist/widgets/todo_items.dart'; // Import ToDoItem widget
+import 'package:url_launcher/url_launcher.dart'; //prompt user to send an email if needs assistance
 
 // Enumeration to represent different task categories
 enum TaskCategory {
@@ -134,6 +135,22 @@ class _TasksScreenState extends State<TasksScreen> {
     Navigator.pop(context); // Close the drawer
   }
 
+  void _openGoogleForm() async {
+    final String googleFormUrl =
+        'https://docs.google.com/forms/d/1JV9OT_EK0WC5NwjFqj53KyDlKFjgvYeOsVEI5acFchM/edit';
+
+    // Create a Uri object from the Google Form URL
+    final Uri uri = Uri.parse(googleFormUrl);
+
+    // Check if the platform supports launching a URL
+    if (await canLaunch(uri.toString())) {
+      await launch(uri.toString());
+    } else {
+      // Handle error if the URL cannot be launched
+      throw 'Could not launch Google Form';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -185,6 +202,9 @@ class _TasksScreenState extends State<TasksScreen> {
             ListTile(
               title: Text("Help"),
               leading: Icon(Icons.help_center),
+              onTap: () {
+                _openGoogleForm();
+              },
             ),
             ListTile(
               title: Text("Logout"),
