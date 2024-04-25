@@ -11,13 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,  // Hide debug banner
-      title: 'Flutter Demo',  // Set app title
-      theme: ThemeData(  // Configure app theme
-        colorScheme: ColorScheme.fromSwatch().copyWith(primary: const Color(0xFF883007)),  // Set primary color
-        useMaterial3: true,  // Enable Material 3 design elements
+      debugShowCheckedModeBanner: false, // Hide debug banner
+      title: 'solo to do list', // Set app title
+      theme: ThemeData(
+        // Configure app theme
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: Color.fromARGB(255, 98, 165, 224)), // Set primary color
+        useMaterial3: true, // Enable Material 3 design elements
       ),
-      home: TasksScreen(),  // Set home screen to TasksScreen
+      home: TasksScreen(), // Set home screen to TasksScreen
     );
   }
 }

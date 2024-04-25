@@ -19,7 +19,8 @@ class TasksScreen extends StatefulWidget {
 class _TasksScreenState extends State<TasksScreen> {
   List<ToDo> todosList = ToDo.todoList(); // List of all tasks
   List<ToDo> _foundToDo = []; // List of tasks to display based on category
-  TaskCategory _selectedCategory = TaskCategory.all; // Default selected category
+  TaskCategory _selectedCategory =
+      TaskCategory.all; // Default selected category
 
   @override
   void initState() {
@@ -35,10 +36,14 @@ class _TasksScreenState extends State<TasksScreen> {
           _foundToDo = todosList; // Display all tasks
           break;
         case TaskCategory.completed:
-          _foundToDo = todosList.where((todo) => todo.isDone).toList(); // Display completed tasks
+          _foundToDo = todosList
+              .where((todo) => todo.isDone)
+              .toList(); // Display completed tasks
           break;
         case TaskCategory.pending:
-          _foundToDo = todosList.where((todo) => !todo.isDone).toList(); // Display pending tasks
+          _foundToDo = todosList
+              .where((todo) => !todo.isDone)
+              .toList(); // Display pending tasks
           break;
       }
     });
@@ -68,20 +73,20 @@ class _TasksScreenState extends State<TasksScreen> {
       context: context,
       builder: (BuildContext dialogContext) {
         return AlertDialog(
-          title: Text('Add New Task'),
+          title: Text('New Task'),
           content: TextField(
             autofocus: true,
             onChanged: (value) {
               newTaskText = value; // Update newTaskText as the user types
             },
-            decoration: InputDecoration(hintText: 'Enter task...'),
+            decoration: InputDecoration(hintText: 'please fill here...'),
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(dialogContext); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: Text('Forfeit'),
             ),
             TextButton(
               onPressed: () {
@@ -141,12 +146,12 @@ class _TasksScreenState extends State<TasksScreen> {
             ),
             SizedBox(width: 8),
             Text(
-              'Tasks App',
+              'Solo Tasks',
               style: TextStyle(color: Colors.white),
             ),
           ],
         ),
-        backgroundColor: const Color(0xFF883007),
+        backgroundColor: Color.fromARGB(255, 98, 165, 224),
         iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: Drawer(
@@ -155,10 +160,10 @@ class _TasksScreenState extends State<TasksScreen> {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/profile.jpeg"),
+                backgroundImage: AssetImage("assets/plp.jpeg"),
               ),
-              accountName: Text("Student"),
-              accountEmail: Text("student@gmail.com"),
+              accountName: Text("omusinde solomon ondula"),
+              accountEmail: Text("solomonondula@gmail.com"),
             ),
             // Drawer menu items for different task categories
             ListTile(
@@ -169,7 +174,8 @@ class _TasksScreenState extends State<TasksScreen> {
             ListTile(
               title: Text("Completed Tasks"),
               leading: Icon(Icons.check_box),
-              onTap: () => _setSelectedCategory(TaskCategory.completed, context),
+              onTap: () =>
+                  _setSelectedCategory(TaskCategory.completed, context),
             ),
             ListTile(
               title: Text("Pending Tasks"),
