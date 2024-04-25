@@ -139,7 +139,7 @@ class _TasksScreenState extends State<TasksScreen> {
     final String googleFormUrl =
         'https://docs.google.com/forms/d/1JV9OT_EK0WC5NwjFqj53KyDlKFjgvYeOsVEI5acFchM/edit';
 
-    // Create a Uri object from the Google Form URL
+    // Create a Uri object from the Google Form URL to connect to my created form
     final Uri uri = Uri.parse(googleFormUrl);
 
     // Check if the platform supports launching a URL

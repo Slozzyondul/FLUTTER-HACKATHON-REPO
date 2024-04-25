@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                   //navigate ack to the previous screen (task screen)
                   Navigator.pop(context);
                 } else {
-                  //handle unsuccessul login
+                  //handle unsuccessul login logic coming after linking to a database
                 }
               },
               child: Text('Login'),
