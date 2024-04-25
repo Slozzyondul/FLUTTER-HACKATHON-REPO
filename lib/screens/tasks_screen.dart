@@ -231,6 +231,14 @@ class _TasksScreenState extends State<TasksScreen> {
               child: TextField(
                 onChanged: (keyword) {
                   // Implement search functionality if needed
+                  setState(() {
+                    _foundToDo = todosList.where((todo) {
+                      //check if the todo text contains the keyword (case-sensitive)
+                      return todo.todoText
+                          .toLowerCase()
+                          .contains(keyword.toLowerCase());
+                    }).toList();
+                  });
                 },
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(0),

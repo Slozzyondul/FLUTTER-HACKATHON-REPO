@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Hide debug banner
-      title: 'Your App', // Set app title
+      title: 'Solo Tasks', // Set app title
       theme: ThemeData(
         // Configure app theme
         colorScheme: ColorScheme.fromSwatch().copyWith(
