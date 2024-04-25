@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/model/todo.dart'; // Import ToDo model class
 import 'package:todolist/widgets/todo_items.dart'; // Import ToDoItem widget
-import 'package:url_launcher/url_launcher.dart'; //prompt user to send an email if needs assistance
+import 'package:url_launcher/url_launcher.dart'; // Import for opening Google Form
 
 // Enumeration to represent different task categories
 enum TaskCategory {
@@ -209,6 +209,10 @@ class _TasksScreenState extends State<TasksScreen> {
             ListTile(
               title: Text("Logout"),
               leading: Icon(Icons.logout),
+              onTap: () {
+                //navigate to the login screen
+                Navigator.pushNamed(context, '/login');
+              },
             ),
           ],
         ),

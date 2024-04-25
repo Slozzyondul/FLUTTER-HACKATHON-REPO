@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/screens/tasks_screen.dart';
+import 'package:todolist/screens/login_screen.dart'; // Import your login screen
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +13,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Hide debug banner
-      title: 'solo to do list', // Set app title
+      title: 'Your App', // Set app title
       theme: ThemeData(
         // Configure app theme
         colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: Color.fromARGB(255, 98, 165, 224)), // Set primary color
         useMaterial3: true, // Enable Material 3 design elements
       ),
-      home: TasksScreen(), // Set home screen to TasksScreen
+      initialRoute: '/', // Set the initial route
+      routes: {
+        '/': (context) => TasksScreen(), // Main tasks screen
+        '/login': (context) => LoginScreen(), // Login screen
+      },
     );
   }
 }
