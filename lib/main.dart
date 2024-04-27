@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:todolist/screens/tasks_screen.dart';
 import 'package:todolist/screens/login_screen.dart'; // Import your login screen
 
-void main() {
+//importing firebase dependencies
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+Future<void> main() async {
   runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
